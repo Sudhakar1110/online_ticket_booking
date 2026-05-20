@@ -1,0 +1,48 @@
+{% extends "templates/web.html" %}
+{% block title %}Event Detail{% endblock %}
+{% block page_content %}
+<div class="container" style="padding:2rem 1rem;max-width:900px">
+  <a href="/events" style="color:#6c3de0">&larr; Back to Events</a>
+  <h1 id="event-title" style="color:#6c3de0;margin-top:.5rem">Loading…</h1>
+  <p><strong>📅</strong> <span id="event-date"></span> &nbsp;|&nbsp;
+     <strong>📍</strong> <span id="event-venue"></span> &nbsp;|&nbsp;
+     🪑 <span id="event-available"></span> seats left</p>
+  <div id="event-description" style="margin:1.5rem 0;line-height:1.7"></div>
+
+  <!-- Booking form -->
+  <div class="booking-form-wrap">
+    <h2>Book Tickets</h2>
+    <table style="width:100%;border-collapse:collapse">
+      <thead>
+        <tr style="background:#f5f3ff;text-align:left">
+          <th style="padding:.5rem">Type</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Availability</th>
+        </tr>
+      </thead>
+      <tbody id="ticket-rows"></tbody>
+    </table>
+    <p style="text-align:right;font-size:1.2rem;font-weight:700;margin-top:1rem">
+      Total: <span id="total-display">₹0.00</span>
+    </p>
+
+    <hr>
+    <h3>Your Details</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+      <input id="cust-name"  type="text"  placeholder="Full Name *"    style="padding:.6rem;border-radius:8px;border:1px solid #ddd">
+      <input id="cust-email" type="email" placeholder="Email *"         style="padding:.6rem;border-radius:8px;border:1px solid #ddd">
+      <input id="cust-phone" type="tel"   placeholder="Phone"           style="padding:.6rem;border-radius:8px;border:1px solid #ddd">
+    </div>
+    <br>
+    <button id="btn-book" class="btn-otb-primary" style="width:100%">Confirm Booking →</button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const eventId = window.location.pathname.split("/").pop();
+    OTB.initEventDetail(eventId);
+  });
+</script>
+{% endblock %}

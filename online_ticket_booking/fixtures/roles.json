@@ -1,0 +1,5 @@
+[
+  {"doctype": "Role", "name": "Booking Admin",    "desk_access": 1},
+  {"doctype": "Role", "name": "Event Organizer",  "desk_access": 1},
+  {"doctype": "Role", "name": "Ticket Customer",  "desk_access": 0}
+]

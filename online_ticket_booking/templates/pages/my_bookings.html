@@ -1,0 +1,11 @@
+{% extends "templates/web.html" %}
+{% block title %}My Bookings{% endblock %}
+{% block page_content %}
+<div class="container" style="padding:2rem 1rem;max-width:800px">
+  <h1 style="color:#6c3de0">My Bookings</h1>
+  <div id="my-bookings-list"><div class="otb-loading">Loading…</div></div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => OTB.initMyBookings());
+</script>
+{% endblock %}

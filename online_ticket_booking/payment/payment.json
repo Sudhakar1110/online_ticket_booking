@@ -1,0 +1,43 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series","booking","event","column_break_1",
+  "customer_name","customer_email","payment_date",
+  "section_pay","amount","payment_method","transaction_id",
+  "column_break_2","gateway_response","payment_status","remarks"
+ ],
+ "fields": [
+  {"fieldname":"naming_series","fieldtype":"Select","label":"Series","options":"PAY-.YYYY.-.####"},
+  {"fieldname":"booking","fieldtype":"Link","label":"Booking","options":"Booking","reqd":1,"in_list_view":1},
+  {"fieldname":"event","fieldtype":"Link","label":"Event","options":"Event","fetch_from":"booking.event","read_only":1,"in_list_view":1},
+  {"fieldname":"column_break_1","fieldtype":"Column Break"},
+  {"fieldname":"customer_name","fieldtype":"Data","label":"Customer","fetch_from":"booking.customer_name","read_only":1,"in_list_view":1},
+  {"fieldname":"customer_email","fieldtype":"Data","label":"Email","fetch_from":"booking.customer_email","read_only":1},
+  {"fieldname":"payment_date","fieldtype":"Datetime","label":"Payment Date","default":"now"},
+  {"fieldname":"section_pay","fieldtype":"Section Break","label":"Payment Info"},
+  {"fieldname":"amount","fieldtype":"Currency","label":"Amount","reqd":1,"in_list_view":1},
+  {"fieldname":"payment_method","fieldtype":"Select","label":"Method","options":"\nOnline\nUPI\nCard\nNet Banking\nCash\nWallet"},
+  {"fieldname":"transaction_id","fieldtype":"Data","label":"Transaction / UTR ID","in_list_view":1},
+  {"fieldname":"column_break_2","fieldtype":"Column Break"},
+  {"fieldname":"gateway_response","fieldtype":"Code","label":"Gateway Response (JSON)"},
+  {"fieldname":"payment_status","fieldtype":"Select","label":"Status","options":"Initiated\nSuccess\nFailed\nRefunded","default":"Initiated","in_list_view":1},
+  {"fieldname":"remarks","fieldtype":"Small Text","label":"Remarks"}
+ ],
+ "links": [],
+ "modified": "2024-01-01 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Online Ticket Booking",
+ "name": "Payment",
+ "owner": "Administrator",
+ "permissions": [
+  {"create":1,"delete":1,"email":1,"export":1,"print":1,"read":1,"report":1,"role":"Booking Admin","share":1,"write":1},
+  {"read":1,"role":"Ticket Customer"}
+ ],
+ "sort_field": "payment_date",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

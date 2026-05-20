@@ -1,0 +1,97 @@
+/* ===== Online Ticket Booking – Global Styles ===== */
+:root {
+  --otb-primary: #6c3de0;
+  --otb-accent:  #f97316;
+  --otb-bg:      #f9f9fc;
+  --otb-card:    #ffffff;
+  --otb-text:    #1e1e2e;
+  --otb-muted:   #6b7280;
+  --otb-radius:  12px;
+  --otb-shadow:  0 4px 24px rgba(108,61,224,.10);
+}
+
+/* ── Event Cards ── */
+.event-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1.5rem; }
+
+.event-card {
+  background: var(--otb-card);
+  border-radius: var(--otb-radius);
+  box-shadow: var(--otb-shadow);
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+  cursor: pointer;
+}
+.event-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(108,61,224,.18); }
+
+.event-card__img { width: 100%; height: 180px; object-fit: cover; }
+.event-card__body { padding: 1rem 1.25rem 1.25rem; }
+.event-card__title { font-size: 1.1rem; font-weight: 700; color: var(--otb-text); margin: 0 0 .35rem; }
+.event-card__meta  { font-size: .85rem; color: var(--otb-muted); margin-bottom: .6rem; }
+.event-card__badge {
+  display: inline-block; padding: .25rem .7rem;
+  border-radius: 999px; font-size: .78rem; font-weight: 600;
+  background: #ede9fe; color: var(--otb-primary);
+}
+.event-card__price { font-weight: 700; color: var(--otb-accent); font-size: 1rem; }
+
+/* ── Booking Form ── */
+.booking-form-wrap {
+  max-width: 760px; margin: 2rem auto;
+  background: var(--otb-card); border-radius: var(--otb-radius);
+  box-shadow: var(--otb-shadow); padding: 2rem 2.5rem;
+}
+.booking-form-wrap h2 { color: var(--otb-primary); }
+
+.ticket-row {
+  display: flex; align-items: center; gap: 1rem;
+  padding: .75rem 0; border-bottom: 1px solid #f0f0f0;
+}
+.ticket-row__name  { flex: 1; font-weight: 600; }
+.ticket-row__price { color: var(--otb-accent); font-weight: 700; min-width: 80px; }
+.ticket-row__qty   { display: flex; align-items: center; gap: .5rem; }
+.ticket-row__qty button {
+  width: 28px; height: 28px; border-radius: 50%; border: none;
+  background: var(--otb-primary); color: #fff; font-size: 1rem; cursor: pointer;
+}
+
+/* ── Booking Confirmation ── */
+.confirmation-card {
+  max-width: 600px; margin: 3rem auto;
+  background: var(--otb-card); border-radius: var(--otb-radius);
+  box-shadow: var(--otb-shadow); padding: 2.5rem; text-align: center;
+}
+.confirmation-card .status-badge {
+  display: inline-block; padding: .4rem 1.2rem; border-radius: 999px;
+  font-size: .9rem; font-weight: 700; margin-bottom: 1.2rem;
+}
+.status-badge.paid      { background: #dcfce7; color: #16a34a; }
+.status-badge.confirmed { background: #dbeafe; color: #1d4ed8; }
+.status-badge.cancelled { background: #fee2e2; color: #dc2626; }
+
+.qr-wrap img { width: 160px; height: 160px; margin: 1rem auto; display: block; }
+
+/* ── My Bookings Page ── */
+.booking-list-item {
+  background: var(--otb-card); border-radius: var(--otb-radius);
+  box-shadow: var(--otb-shadow); padding: 1.2rem 1.5rem;
+  margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer; transition: box-shadow .2s;
+}
+.booking-list-item:hover { box-shadow: 0 8px 32px rgba(108,61,224,.18); }
+
+/* ── Buttons ── */
+.btn-otb-primary {
+  background: var(--otb-primary); color: #fff; border: none;
+  border-radius: 8px; padding: .7rem 1.8rem; font-size: .95rem; font-weight: 600;
+  cursor: pointer; transition: background .15s;
+}
+.btn-otb-primary:hover { background: #5530c0; }
+.btn-otb-outline {
+  background: transparent; color: var(--otb-primary);
+  border: 2px solid var(--otb-primary); border-radius: 8px;
+  padding: .65rem 1.6rem; font-weight: 600; cursor: pointer;
+}
+
+/* ── Utilities ── */
+.otb-loading { text-align: center; padding: 3rem; color: var(--otb-muted); font-size: 1.1rem; }
+.otb-empty   { text-align: center; padding: 3rem; opacity: .6; }

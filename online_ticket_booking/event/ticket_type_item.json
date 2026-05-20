@@ -1,0 +1,25 @@
+{
+ "actions": [],
+ "creation": "2024-01-01 00:00:00",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ticket_type_name","price","total_seats","available_seats","description"
+ ],
+ "fields": [
+  {"fieldname":"ticket_type_name","fieldtype":"Data","label":"Ticket Type","reqd":1,"in_list_view":1},
+  {"fieldname":"price","fieldtype":"Currency","label":"Price (₹)","reqd":1,"in_list_view":1},
+  {"fieldname":"total_seats","fieldtype":"Int","label":"Total Seats","reqd":1,"in_list_view":1},
+  {"fieldname":"available_seats","fieldtype":"Int","label":"Available","read_only":1,"in_list_view":1},
+  {"fieldname":"description","fieldtype":"Small Text","label":"Perks / Description"}
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Online Ticket Booking",
+ "name": "Ticket Type Item",
+ "owner": "Administrator",
+ "permissions": []
+}

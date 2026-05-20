@@ -1,0 +1,39 @@
+{% extends "templates/web.html" %}
+{% block title %}Booking Confirmation{% endblock %}
+{% block page_content %}
+<div class="confirmation-card">
+  <h2 style="color:#6c3de0">Booking Confirmation</h2>
+  <span id="status-badge" class="status-badge">Loading…</span>
+
+  <table style="width:100%;text-align:left;margin:1.2rem 0;font-size:.95rem">
+    <tr><td><strong>Booking ID</strong></td><td id="booking-id"></td></tr>
+    <tr><td><strong>Event</strong></td>      <td id="event-name"></td></tr>
+    <tr><td><strong>Date</strong></td>       <td id="event-date"></td></tr>
+    <tr><td><strong>Venue</strong></td>      <td id="venue-name"></td></tr>
+    <tr><td><strong>Customer</strong></td>   <td id="cust-name"></td></tr>
+    <tr><td><strong>Total</strong></td>      <td id="total-amt"></td></tr>
+  </table>
+
+  <table class="table table-bordered" style="font-size:.9rem">
+    <thead><tr><th>Ticket</th><th>Qty</th><th>Price</th><th>Subtotal</th></tr></thead>
+    <tbody id="items-body"></tbody>
+  </table>
+
+  <div class="qr-wrap">
+    <p style="font-size:.85rem;color:#666">Show this QR at the venue</p>
+    <img id="qr-img" src="" alt="QR Code">
+  </div>
+
+  <div style="margin-top:1.5rem;display:flex;gap:1rem;justify-content:center">
+    <a href="/my-bookings" class="btn-otb-outline">My Bookings</a>
+    <button class="btn-otb-primary" onclick="window.print()">Print / Save</button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const bookingId = window.location.pathname.split("/").pop();
+    OTB.initBookingConfirmation(bookingId);
+  });
+</script>
+{% endblock %}
